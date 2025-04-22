@@ -1,16 +1,29 @@
 import React from "react";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import AppTextInput from "../components/AppTextInput";
 import AppButton from "../components/AppButton";
 import AppTobBarAuth from "../components/AppTobBarAuth";
 import colors from "../../assets/colors";
+import { AuthStackParamList } from "../navigation/AuthNavigation";
 
+type ForgotPasswordProps = NativeStackNavigationProp<
+  AuthStackParamList,
+  "ForgotPassword"
+>;
 const { width } = Dimensions.get("window");
-const ForgotPassword = () => {
+const ForgotPassword = ({
+  navigation,
+}: {
+  navigation: ForgotPasswordProps;
+}) => {
   const [email, setEmail] = React.useState<string>("");
   return (
     <View style={styles.container}>
-      <AppTobBarAuth text="Forgot Password" />
+      <AppTobBarAuth
+        text="Forgot Password"
+        handleNavBack={() => navigation.goBack()}
+      />
       <View style={{ height: 60 }} />
       <Text style={styles.secondaryHeading}>
         Enter your email to receive a verification code to reset your password
@@ -23,7 +36,11 @@ const ForgotPassword = () => {
         keyboardType="email-address"
       />
       <View style={{ height: 20 }} />
-      <AppButton onPress={() => {}}>
+      <AppButton
+        onPress={() => {
+          navigation.navigate("VerificationCode");
+        }}
+      >
         <Text style={styles.btnText}>Send Verification Code</Text>
       </AppButton>
     </View>
