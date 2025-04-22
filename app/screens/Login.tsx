@@ -2,6 +2,7 @@ import React from "react";
 import {
   Dimensions,
   Image,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -21,110 +22,112 @@ const Login = ({ navigation }: { navigation: LoginProps }) => {
   const [togglePswd, setTogglePswd] = React.useState<boolean>(false);
   return (
     <View style={styles.container}>
-      <View style={{ alignItems: "center", paddingBottom: 20 }}>
-        <Text style={styles.heading}>Hello Again!</Text>
-        <Text style={styles.secondaryHeading}>
-          Welcome back, you've been missed!
-        </Text>
-      </View>
-      <Text style={styles.inputLbl}>Email Address</Text>
-      <AppTextInput
-        placeholder="email"
-        value={email}
-        onChangeText={setEmail}
-        style={styles.input}
-        keyboardType="email-address"
-      />
-      <View style={{ height: 20 }} />
-      <Text style={styles.inputLbl}>Password</Text>
-      <AppTextInput
-        placeholder="password"
-        value={password}
-        onChangeText={setPassword}
-        style={styles.input}
-        secureTextEntry={togglePswd}
-        keyboardType="default"
-        toggleSecureEntry={() => {
-          setTogglePswd(!togglePswd);
-        }}
-      />
-      <View style={{ height: 20 }} />
-      <AppButton onPress={() => {}}>
-        <Text style={styles.btnText}>Sign In</Text>
-      </AppButton>
-      <View style={{ height: 20 }} />
-      <TouchableOpacity style={{ alignItems: "center" }}>
-        <Text
+      <ScrollView>
+        <View style={{ alignItems: "center", paddingBottom: 20 }}>
+          <Text style={styles.heading}>Hello Again!</Text>
+          <Text style={styles.secondaryHeading}>
+            Welcome back, you've been missed!
+          </Text>
+        </View>
+        <Text style={styles.inputLbl}>Email Address</Text>
+        <AppTextInput
+          placeholder="email"
+          value={email}
+          onChangeText={setEmail}
+          style={styles.input}
+          keyboardType="email-address"
+        />
+        <View style={{ height: 20 }} />
+        <Text style={styles.inputLbl}>Password</Text>
+        <AppTextInput
+          placeholder="password"
+          value={password}
+          onChangeText={setPassword}
+          style={styles.input}
+          secureTextEntry={togglePswd}
+          keyboardType="default"
+          toggleSecureEntry={() => {
+            setTogglePswd(!togglePswd);
+          }}
+        />
+        <View style={{ height: 20 }} />
+        <AppButton onPress={() => {}}>
+          <Text style={styles.btnText}>Sign In</Text>
+        </AppButton>
+        <View style={{ height: 20 }} />
+        <TouchableOpacity style={{ alignItems: "center" }}>
+          <Text
+            style={{
+              fontFamily: "Manrope-SemiBold",
+              fontSize: 16,
+              color: colors.green,
+            }}
+          >
+            Forgot Password?
+          </Text>
+        </TouchableOpacity>
+        <View style={{ height: 40 }} />
+        <View style={styles.orContainer}>
+          <View style={styles.line} />
+          <Text style={styles.orText}>OR</Text>
+          <View style={styles.line} />
+        </View>
+        <View style={{ height: 20 }} />
+        <AppButton
+          onPress={() => {}}
           style={{
-            fontFamily: "Manrope-SemiBold",
-            fontSize: 16,
-            color: colors.green,
+            backgroundColor: colors.lightGreen,
+            borderColor: colors.lightGrey,
+            borderWidth: 1,
           }}
         >
-          Forgot Password?
-        </Text>
-      </TouchableOpacity>
-      <View style={{ height: 40 }} />
-      <View style={styles.orContainer}>
-        <View style={styles.line} />
-        <Text style={styles.orText}>OR</Text>
-        <View style={styles.line} />
-      </View>
-      <View style={{ height: 20 }} />
-      <AppButton
-        onPress={() => {}}
-        style={{
-          backgroundColor: colors.lightGreen,
-          borderColor: colors.lightGrey,
-          borderWidth: 1,
-        }}
-      >
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <Image
-            resizeMode="contain"
-            source={require("../../assets/images/google.png")}
-            style={styles.logoImg}
-          />
-          <Text style={[styles.btnText, { color: colors.dark }]}>
-            Sign Up with Apple
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <Image
+              resizeMode="contain"
+              source={require("../../assets/images/google.png")}
+              style={styles.logoImg}
+            />
+            <Text style={[styles.btnText, { color: colors.dark }]}>
+              Sign Up with Apple
+            </Text>
+          </View>
+        </AppButton>
+        <View style={{ height: 20 }} />
+        <AppButton
+          onPress={() => {}}
+          style={{
+            backgroundColor: colors.lightGreen,
+            borderColor: colors.lightGrey,
+            borderWidth: 1,
+          }}
+        >
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <Image
+              resizeMode="contain"
+              source={require("../../assets/images/apple.png")}
+              style={styles.logoImg}
+            />
+            <Text style={[styles.btnText, { color: colors.dark }]}>
+              Sign Up with Apple
+            </Text>
+          </View>
+        </AppButton>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            marginTop: 60,
+            justifyContent: "center",
+          }}
+        >
+          <Text style={{ color: colors.grey, fontFamily: "Manrope-Semibold" }}>
+            Don't Have An Account?{" "}
           </Text>
+          <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+            <Text style={{ color: colors.green }}>Sign Up For Free</Text>
+          </TouchableOpacity>
         </View>
-      </AppButton>
-      <View style={{ height: 20 }} />
-      <AppButton
-        onPress={() => {}}
-        style={{
-          backgroundColor: colors.lightGreen,
-          borderColor: colors.lightGrey,
-          borderWidth: 1,
-        }}
-      >
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <Image
-            resizeMode="contain"
-            source={require("../../assets/images/apple.png")}
-            style={styles.logoImg}
-          />
-          <Text style={[styles.btnText, { color: colors.dark }]}>
-            Sign Up with Apple
-          </Text>
-        </View>
-      </AppButton>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          marginTop: 60,
-          justifyContent: "center",
-        }}
-      >
-        <Text style={{ color: colors.grey, fontFamily: "Manrope-Semibold" }}>
-          Don't Have An Account?{" "}
-        </Text>
-        <TouchableOpacity onPress={() => navigation.navigate("Register")}>
-          <Text style={{ color: colors.green }}>Sign Up For Free</Text>
-        </TouchableOpacity>
-      </View>
+      </ScrollView>
     </View>
   );
 };
