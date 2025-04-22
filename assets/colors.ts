@@ -5,4 +5,7 @@ export default {
   dark: "2F3130",
   warning: "#FF3E3E",
   white: "#FFFFFF",
+  lightGreen: "#E6F9F2",
+  lightGrey: "#ccc",
 };
+//#cbf5dd
