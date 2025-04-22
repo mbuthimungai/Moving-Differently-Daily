@@ -5,7 +5,8 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-
+import AuthNavigation from "./app/navigation/AuthNavigation";
+import colors from "./assets/colors";
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
@@ -28,8 +29,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <SafeAreaProvider>
-        <SafeAreaView>
-          <Text>Hello Moving differently</Text>
+        <SafeAreaView style={styles.container}>
+          <AuthNavigation />
         </SafeAreaView>
       </SafeAreaProvider>
     </NavigationContainer>
@@ -39,8 +40,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: colors.white,
   },
 });
