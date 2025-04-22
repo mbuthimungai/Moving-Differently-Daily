@@ -55,7 +55,12 @@ const Login = ({ navigation }: { navigation: LoginProps }) => {
           <Text style={styles.btnText}>Sign In</Text>
         </AppButton>
         <View style={{ height: 20 }} />
-        <TouchableOpacity style={{ alignItems: "center" }}>
+        <TouchableOpacity
+          style={{ alignItems: "center" }}
+          onPress={() => {
+            navigation.navigate("ForgotPassword");
+          }}
+        >
           <Text
             style={{
               fontFamily: "Manrope-SemiBold",

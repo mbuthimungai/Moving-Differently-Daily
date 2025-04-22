@@ -7,5 +7,6 @@ export default {
   white: "#FFFFFF",
   lightGreen: "#E6F9F2",
   lightGrey: "#ccc",
+  AppBg: "#F5FCFF",
 };
 //#cbf5dd
