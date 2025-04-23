@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { View, StyleSheet, Text, Dimensions } from "react-native";
-import colors from "../../assets/colors";
-import AppTobBarAuth from "../components/AppTobBarAuth";
-import { AuthStackParamList } from "../navigation/AuthNavigation";
+import colors from "../../../assets/colors";
+import AppTobBarAuth from "../../components/AppTobBarAuth";
+import { AuthStackParamList } from "../../navigation/AuthNavigation";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import AppTextInput from "../components/AppTextInput";
-import AppButton from "../components/AppButton";
+import AppTextInput from "../../components/AppTextInput";
+import AppButton from "../../components/AppButton";
 
 type ConfirmPasswordProps = NativeStackNavigationProp<
   AuthStackParamList,
