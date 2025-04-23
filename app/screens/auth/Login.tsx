@@ -9,10 +9,10 @@ import {
   View,
 } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import colors from "../../assets/colors";
-import AppTextInput from "../components/AppTextInput";
-import AppButton from "../components/AppButton";
-import { AuthStackParamList } from "../navigation/AuthNavigation";
+import colors from "../../../assets/colors";
+import AppTextInput from "../../components/AppTextInput";
+import AppButton from "../../components/AppButton";
+import { AuthStackParamList } from "../../navigation/AuthNavigation";
 const { width } = Dimensions.get("window");
 
 type LoginProps = NativeStackNavigationProp<AuthStackParamList, "Login">;

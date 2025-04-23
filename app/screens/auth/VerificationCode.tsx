@@ -7,12 +7,12 @@ import {
   View,
 } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import AppTobBarAuth from "../components/AppTobBarAuth";
-import colors from "../../assets/colors";
-import { AuthStackParamList } from "../navigation/AuthNavigation";
-import OTPInput from "../components/OTPInput";
-import App from "../../App";
-import AppButton from "../components/AppButton";
+import AppTobBarAuth from "../../components/AppTobBarAuth";
+import colors from "../../../assets/colors";
+import { AuthStackParamList } from "../../navigation/AuthNavigation";
+import OTPInput from "../../components/OTPInput";
+import App from "../../../App";
+import AppButton from "../../components/AppButton";
 
 const { width } = Dimensions.get("window");
 
