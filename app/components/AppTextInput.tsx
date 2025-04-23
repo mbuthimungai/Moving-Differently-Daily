@@ -18,7 +18,8 @@ interface AppTextInputProps {
   keyboardType?: "default" | "email-address" | "numeric" | "phone-pad";
   style?: StyleProp<ViewStyle>;
   onFocus?: () => void;
-  toggleSecureEntry?: () => void; // 👈 Add this
+  toggleSecureEntry?: () => void;
+  editable?: boolean;
 }
 
 const AppTextInput: React.FC<AppTextInputProps> = ({
@@ -30,6 +31,7 @@ const AppTextInput: React.FC<AppTextInputProps> = ({
   style,
 
   toggleSecureEntry,
+  editable = true,
 }) => {
   const [focus, setFocus] = useState(false);
   return (
@@ -51,6 +53,7 @@ const AppTextInput: React.FC<AppTextInputProps> = ({
         autoCorrect={false}
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}
+        editable={editable}
       />
       {toggleSecureEntry && (
         <TouchableOpacity onPress={toggleSecureEntry}>

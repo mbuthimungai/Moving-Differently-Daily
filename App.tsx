@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import AuthNavigation from "./app/navigation/AuthNavigation";
+import OnboardingNavigation from "./app/navigation/OnboardingNavigation";
 import colors from "./assets/colors";
 SplashScreen.preventAutoHideAsync();
 
@@ -30,7 +31,8 @@ export default function App() {
     <NavigationContainer>
       <SafeAreaProvider>
         <SafeAreaView style={styles.container}>
-          <AuthNavigation />
+          {/* <AuthNavigation /> */}
+          <OnboardingNavigation />
         </SafeAreaView>
       </SafeAreaProvider>
     </NavigationContainer>
