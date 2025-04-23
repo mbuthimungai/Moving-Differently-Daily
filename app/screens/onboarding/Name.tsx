@@ -39,7 +39,7 @@ const Name = ({ navigation }: { navigation: NameProps }) => {
       />
       <AppButton
         onPress={() => {
-          console.log("next clicked");
+          navigation.navigate("ShareLocation");
         }}
       >
         <Text style={styles.btnText}>Next</Text>

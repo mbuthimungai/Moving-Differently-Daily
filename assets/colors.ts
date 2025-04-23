@@ -8,5 +8,5 @@ export default {
   lightGreen: "#E6F9F2",
   lightGrey: "#ccc",
   AppBg: "#F5FCFF",
+  darkLightGreen: "#cbf5dd",
 };
-//#cbf5dd
