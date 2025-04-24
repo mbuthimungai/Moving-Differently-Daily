@@ -8,6 +8,7 @@ import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import AuthNavigation from "./app/navigation/AuthNavigation";
 import OnboardingNavigation from "./app/navigation/OnboardingNavigation";
 import colors from "./assets/colors";
+import MainTabNavigator from "./app/navigation/TabNavigation";
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
@@ -32,7 +33,8 @@ export default function App() {
       <SafeAreaProvider>
         <SafeAreaView style={styles.container}>
           {/* <AuthNavigation /> */}
-          <OnboardingNavigation />
+          {/* <OnboardingNavigation /> */}
+          <MainTabNavigator />
         </SafeAreaView>
       </SafeAreaProvider>
     </NavigationContainer>
