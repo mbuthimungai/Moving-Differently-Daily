@@ -1,4 +1,6 @@
-import { StatusBar } from "expo-status-bar";
+import "react-native-gesture-handler";
+import "react-native-reanimated";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { StyleSheet, Text, View } from "react-native";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
@@ -29,15 +31,17 @@ export default function App() {
   }, [loaded, error]);
 
   return (
-    <NavigationContainer>
-      <SafeAreaProvider>
-        <SafeAreaView style={styles.container}>
-          {/* <AuthNavigation /> */}
-          {/* <OnboardingNavigation /> */}
-          <MainTabNavigator />
-        </SafeAreaView>
-      </SafeAreaProvider>
-    </NavigationContainer>
+    <GestureHandlerRootView>
+      <NavigationContainer>
+        <SafeAreaProvider>
+          <SafeAreaView style={styles.container}>
+            <MainTabNavigator />
+            {/* <AuthNavigation /> */}
+            {/* <OnboardingNavigation /> */}
+          </SafeAreaView>
+        </SafeAreaProvider>
+      </NavigationContainer>
+    </GestureHandlerRootView>
   );
 }
 
