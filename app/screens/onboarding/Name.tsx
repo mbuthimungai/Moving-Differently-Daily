@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   input: {
-    width: width - 40,
+    width: width - 20,
     height: 50,
     borderRadius: 10,
     backgroundColor: colors.white,
