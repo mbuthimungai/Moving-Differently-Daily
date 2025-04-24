@@ -1,46 +1,33 @@
-import { View, Text, StyleSheet, Dimensions } from "react-native";
-import AppTobBarAuth from "../../components/AppTobBarAuth";
+import { StyleSheet, View, Text, Dimensions } from "react-native";
 import colors from "../../../assets/colors";
+import AppTobBarAuth from "../../components/AppTobBarAuth";
 import AppTextInput from "../../components/AppTextInput";
-import { useState } from "react";
 import AppButton from "../../components/AppButton";
+import { useState } from "react";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { OnboardingParamList } from "../../navigation/OnboardingNavigation";
 
-type NameProps = NativeStackNavigationProp<OnboardingParamList, "Name">;
-
+type zipCodeProps = NativeStackNavigationProp<OnboardingParamList, "Zipcode">;
 const { width } = Dimensions.get("window");
-const Name = ({ navigation }: { navigation: NameProps }) => {
-  const [firstName, setFirstName] = useState<string>("");
-  const [lastName, setLastName] = useState<string>("");
-
+const Zipcode = ({ navigation }: { navigation: zipCodeProps }) => {
+  const [zipCode, setZipCode] = useState<string>("");
   return (
     <View style={styles.container}>
-      <AppTobBarAuth
-        handleNavBack={() => {
-          navigation.goBack();
-        }}
-      />
-      <Text style={styles.heading}>What's your name?</Text>
-      <View style={{ height: 40 }} />
-      <Text style={styles.inputLbl}>First name</Text>
+      <AppTobBarAuth handleNavBack={() => navigation.goBack()} />
+      <Text style={styles.heading}>What's your Zipcode?</Text>
+      <Text style={styles.expTxt}>
+        We'll use your zip code to ensure accurate delivery of your products.
+      </Text>
+      <Text style={styles.inputLbl}>Zip code</Text>
       <AppTextInput
-        placeholder="first name"
-        value={firstName}
-        onChangeText={setFirstName}
-        style={styles.input}
-      />
-      <Text style={styles.inputLbl}>Last name</Text>
-      <AppTextInput
-        placeholder="last name"
-        value={lastName}
-        onChangeText={setLastName}
+        value={zipCode}
+        onChangeText={setZipCode}
+        placeholder="12345"
         style={styles.input}
       />
       <AppButton
-        onPress={() => {
-          navigation.navigate("Phone");
-        }}
+        onPress={() => {}}
+        style={{ width: width - 20, marginTop: 20 }}
       >
         <Text style={styles.btnText}>Next</Text>
       </AppButton>
@@ -60,12 +47,21 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 10,
     paddingTop: 10,
+    alignItems: "center",
   },
   heading: {
     color: colors.dark,
     fontFamily: "Manrope-SemiBold",
     fontSize: 30,
     textAlign: "center",
+    paddingTop: 20,
+  },
+  expTxt: {
+    width: width * 0.7,
+    textAlign: "center",
+    fontFamily: "Manrope-Regular",
+    color: colors.grey,
+    paddingVertical: 20,
   },
   input: {
     width: width - 20,
@@ -83,6 +79,9 @@ const styles = StyleSheet.create({
     fontFamily: "Manrope-Regular",
     paddingBottom: 5,
     fontSize: 16,
+    textAlign: "left",
+    width: "100%",
   },
 });
-export default Name;
+
+export default Zipcode;
