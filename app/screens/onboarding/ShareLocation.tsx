@@ -35,7 +35,9 @@ const ShareLocation = ({ navigation }: { navigation: ShareLocationProps }) => {
         <Text style={styles.btnText}>Share Location</Text>
       </AppButton>
       <AppButton
-        onPress={() => {}}
+        onPress={() => {
+          navigation.navigate("Zipcode");
+        }}
         style={{
           backgroundColor: colors.lightGreen,
           borderWidth: 1,
