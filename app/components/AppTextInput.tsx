@@ -20,6 +20,7 @@ interface AppTextInputProps {
   onFocus?: () => void;
   toggleSecureEntry?: () => void;
   editable?: boolean;
+  icon?: React.ReactNode;
 }
 
 const AppTextInput: React.FC<AppTextInputProps> = ({
@@ -32,6 +33,7 @@ const AppTextInput: React.FC<AppTextInputProps> = ({
 
   toggleSecureEntry,
   editable = true,
+  icon,
 }) => {
   const [focus, setFocus] = useState(false);
   return (
@@ -42,8 +44,9 @@ const AppTextInput: React.FC<AppTextInputProps> = ({
         focus ? { borderColor: colors.green } : { borderColor: "#ccc" },
       ]}
     >
+      {icon ? icon : null}
       <TextInput
-        style={{ flex: 1 }}
+        style={{ flex: 1, fontFamily: "Manrope-Regular", fontSize: 16 }}
         placeholder={placeholder}
         value={value}
         secureTextEntry={secureTextEntry}
