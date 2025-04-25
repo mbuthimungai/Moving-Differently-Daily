@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { Ionicons, Feather } from "@expo/vector-icons";
+import colors from "../../assets/colors";
 
 interface AppTopNavProps {
   openBottomSheet: () => void;
@@ -32,12 +33,18 @@ const AppTopNav = ({ openBottomSheet }: AppTopNavProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 16,
-    paddingTop: 12,
-    paddingBottom: 8,
+    // paddingHorizontal: 16,
+    paddingVertical: 25,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+    borderBottomWidth: 1,
+    borderColor: colors.lightGrey,
+    elevation: 5,
+    shadowColor: colors.dark,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
   locationContainer: {
     flexDirection: "row",
