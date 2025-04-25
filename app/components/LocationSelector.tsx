@@ -37,7 +37,7 @@ const LocationSelector = ({ bottomSheetRef }: bottomSheetRefType) => {
         <View
           style={{
             borderBottomWidth: 1,
-            borderColor: colors.grey,
+            borderColor: colors.lightGrey,
             padding: 10,
             flexDirection: "row",
             justifyContent: "space-between",
