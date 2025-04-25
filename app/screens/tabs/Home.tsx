@@ -12,7 +12,9 @@ import LocationSelector from "../../components/LocationSelector";
 import BottomSheet from "@gorhom/bottom-sheet";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
 import AppTextInput from "../../components/AppTextInput";
-import { Ionicons } from "@expo/vector-icons";
+import { AntDesign, Ionicons } from "@expo/vector-icons";
+import DrinkCard from "../../components/AppDrinkCard";
+import { drinksData } from "../../utils/data";
 
 const { width } = Dimensions.get("window");
 const filters = ["All", "Whiskey", "Vodka", "Gin", "Brandy", "Tequila"];
@@ -74,9 +76,37 @@ const Home = () => {
           )}
         />
 
-        <View style={{ marginTop: 20 }}>
-          <Text style={styles.sectionHeader}>{selectedFilter} Specials</Text>
+        <View
+          style={[
+            styles.row,
+            {
+              marginTop: 20,
+            },
+          ]}
+        >
+          <Text style={styles.sectionHeader}>Top deals at your store</Text>
+          <AntDesign name="arrowright" size={24} color={colors.dark} />
         </View>
+
+        <FlatList
+          data={drinksData}
+          keyExtractor={(item) => item.id}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.listContainer}
+          ItemSeparatorComponent={() => <View style={{ width: 10 }}></View>}
+          renderItem={({ item }) => (
+            <DrinkCard
+              image={item.image}
+              name={item.name}
+              volume={item.volume}
+              price={item.price}
+              onAdd={() => console.log("Add to cart", item.name)}
+              onFavorite={() => console.log("Favorited!", item.name)}
+              isFavorite={item.isFavorite}
+            />
+          )}
+        />
       </ScrollView>
 
       <LocationSelector bottomSheetRef={bottomSheetRef} />
@@ -85,10 +115,32 @@ const Home = () => {
 };
 
 const styles = StyleSheet.create({
+  activeFilter: {
+    backgroundColor: colors.green,
+  },
+  activeFilterText: {
+    color: "#fff",
+    fontWeight: "600",
+  },
   container: {
     flex: 1,
     backgroundColor: colors.AppBg,
     paddingHorizontal: 10,
+  },
+  filterList: {
+    paddingVertical: 10,
+  },
+  filterButton: {
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 20,
+    backgroundColor: "#eee",
+    marginRight: 10,
+  },
+
+  filterText: {
+    fontSize: 14,
+    color: colors.dark,
   },
   heading: {
     fontSize: 30,
@@ -107,26 +159,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.grey,
   },
-  filterList: {
-    paddingVertical: 10,
+  listContainer: {
+    paddingHorizontal: 10,
   },
-  filterButton: {
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    borderRadius: 20,
-    backgroundColor: "#eee",
-    marginRight: 10,
-  },
-  activeFilter: {
-    backgroundColor: colors.green,
-  },
-  filterText: {
-    fontSize: 14,
-    color: colors.dark,
-  },
-  activeFilterText: {
-    color: "#fff",
-    fontWeight: "600",
+  row: {
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   sectionHeader: {
     fontSize: 18,
