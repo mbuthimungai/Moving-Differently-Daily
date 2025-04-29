@@ -1,5 +1,13 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  StyleProp,
+  ViewStyle,
+} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import colors from "../../assets/colors";
 
@@ -11,6 +19,7 @@ interface DrinkCardProps {
   onAdd: () => void;
   onFavorite?: () => void;
   isFavorite?: boolean;
+  style?: StyleProp<ViewStyle>;
 }
 
 const DrinkCard: React.FC<DrinkCardProps> = ({
@@ -21,9 +30,10 @@ const DrinkCard: React.FC<DrinkCardProps> = ({
   onAdd,
   onFavorite,
   isFavorite = false,
+  style,
 }) => {
   return (
-    <View style={styles.card}>
+    <View style={[styles.card, style]}>
       <Image source={{ uri: image }} style={styles.image} />
 
       <TouchableOpacity style={styles.favoriteIcon} onPress={onFavorite}>
