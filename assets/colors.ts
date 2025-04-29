@@ -1,12 +1,13 @@
 export default {
-  green: "#2FAA7A",
+  primaryColor: "#A50034",
+
   yellow: "#FCCC3A",
   grey: "#656B68",
   dark: "#2F3130",
   warning: "#FF3E3E",
   white: "#FFFFFF",
-  lightGreen: "#E6F9F2",
+  secondaryColor: "#F7C6C7",
   lightGrey: "#ccc",
-  AppBg: "#F5FCFF",
-  darkLightGreen: "#cbf5dd",
+  AppBg: "##fff3f3",
+  darkLightGreen: "#FEF5F5",
 };

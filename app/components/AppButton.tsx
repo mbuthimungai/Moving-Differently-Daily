@@ -17,7 +17,7 @@ const AppButton: React.FC<AppButtonProps> = ({ children, onPress, style }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.green,
+    backgroundColor: colors.primaryColor,
     paddingHorizontal: 10,
     paddingVertical: 15,
     borderRadius: 10,

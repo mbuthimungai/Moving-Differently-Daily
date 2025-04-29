@@ -28,7 +28,7 @@ const MainTabNavigator = () => {
             <Feather
               name="home"
               size={26}
-              color={focused ? colors.green : colors.grey}
+              color={focused ? colors.primaryColor : colors.grey}
             />
           ),
         }}
@@ -41,7 +41,7 @@ const MainTabNavigator = () => {
             <Feather
               name="search"
               size={26}
-              color={focused ? colors.green : colors.grey}
+              color={focused ? colors.primaryColor : colors.grey}
             />
           ),
         }}
@@ -54,7 +54,7 @@ const MainTabNavigator = () => {
             <Feather
               name="shopping-bag"
               size={26}
-              color={focused ? colors.green : colors.grey}
+              color={focused ? colors.primaryColor : colors.grey}
             />
           ),
         }}
@@ -67,7 +67,7 @@ const MainTabNavigator = () => {
             <Feather
               name="user"
               size={26}
-              color={focused ? colors.green : colors.grey}
+              color={focused ? colors.primaryColor : colors.grey}
             />
           ),
         }}
@@ -78,7 +78,7 @@ const MainTabNavigator = () => {
 
 const styles = StyleSheet.create({
   tabBarStyle: {
-    backgroundColor: colors.lightGreen,
+    backgroundColor: colors.white,
     height: 70,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,

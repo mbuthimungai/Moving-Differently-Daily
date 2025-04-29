@@ -14,7 +14,8 @@ import { FlatList, ScrollView } from "react-native-gesture-handler";
 import AppTextInput from "../../components/AppTextInput";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import DrinkCard from "../../components/AppDrinkCard";
-import { drinksData } from "../../utils/data";
+import { drinksData, drinkCategories } from "../../utils/data";
+import AppDrinkCategory from "../../components/AppDrinkCategory";
 
 const { width } = Dimensions.get("window");
 const filters = ["All", "Whiskey", "Vodka", "Gin", "Brandy", "Tequila"];
@@ -30,9 +31,14 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <AppTopNav openBottomSheet={openBottomSheet} />
-      <ScrollView>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: 120 }}
+      >
         <Text style={styles.heading}>
-          <Text style={{ color: colors.green }}>Budget-friendly{"\n"}</Text>
+          <Text style={{ color: colors.primaryColor }}>
+            Budget-friendly{"\n"}
+          </Text>
           drinks for you
         </Text>
         <AppTextInput
@@ -85,12 +91,14 @@ const Home = () => {
           ]}
         >
           <Text style={styles.sectionHeader}>Top deals at your store</Text>
-          <AntDesign name="arrowright" size={24} color={colors.dark} />
+          <TouchableOpacity onPress={() => {}}>
+            <AntDesign name="arrowright" size={24} color={colors.dark} />
+          </TouchableOpacity>
         </View>
 
         <FlatList
           data={drinksData}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.id.toString()}
           horizontal
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.listContainer}
@@ -107,6 +115,68 @@ const Home = () => {
             />
           )}
         />
+        <View
+          style={[
+            styles.row,
+            {
+              marginTop: 20,
+            },
+          ]}
+        >
+          <Text style={styles.sectionHeader}>Most loved deals</Text>
+          <TouchableOpacity onPress={() => {}}>
+            <AntDesign name="arrowright" size={24} color={colors.dark} />
+          </TouchableOpacity>
+        </View>
+
+        <FlatList
+          data={drinksData}
+          keyExtractor={(item) => item.id.toString()}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.listContainer}
+          ItemSeparatorComponent={() => <View style={{ width: 10 }}></View>}
+          renderItem={({ item }) => (
+            <DrinkCard
+              image={item.image}
+              name={item.name}
+              volume={item.volume}
+              price={item.price}
+              onAdd={() => console.log("Add to cart", item.name)}
+              onFavorite={() => console.log("Favorited!", item.name)}
+              isFavorite={item.isFavorite}
+            />
+          )}
+        />
+        <View
+          style={[
+            styles.row,
+            {
+              marginTop: 20,
+            },
+          ]}
+        >
+          <Text style={styles.sectionHeader}>Shop by category</Text>
+          <TouchableOpacity onPress={() => {}}>
+            <AntDesign name="arrowright" size={24} color={colors.dark} />
+          </TouchableOpacity>
+        </View>
+
+        <FlatList
+          data={drinkCategories}
+          keyExtractor={(item) => item.id}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.listContainer}
+          ItemSeparatorComponent={() => <View style={{ width: 10 }}></View>}
+          renderItem={({ item }) => (
+            <AppDrinkCategory
+              key={item.id}
+              image={item.image}
+              title={item.name}
+            />
+          )}
+        />
       </ScrollView>
 
       <LocationSelector bottomSheetRef={bottomSheetRef} />
@@ -116,10 +186,10 @@ const Home = () => {
 
 const styles = StyleSheet.create({
   activeFilter: {
-    backgroundColor: colors.green,
+    backgroundColor: colors.primaryColor,
   },
   activeFilterText: {
-    color: "#fff",
+    color: colors.white,
     fontWeight: "600",
   },
   container: {
@@ -134,8 +204,10 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 16,
     borderRadius: 20,
-    backgroundColor: "#eee",
+    backgroundColor: colors.white,
     marginRight: 10,
+    borderWidth: 1,
+    borderColor: colors.lightGrey,
   },
 
   filterText: {

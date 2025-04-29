@@ -67,8 +67,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   filledInput: {
-    backgroundColor: colors.lightGreen,
-    borderColor: colors.lightGreen,
+    backgroundColor: colors.secondaryColor,
+    borderColor: colors.secondaryColor,
   },
 });
 

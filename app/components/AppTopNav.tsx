@@ -14,7 +14,11 @@ const AppTopNav = ({ openBottomSheet }: AppTopNavProps) => {
         style={styles.locationContainer}
         onPress={openBottomSheet}
       >
-        <Ionicons name="location-outline" size={20} color="#2FAA7A" />
+        <Ionicons
+          name="location-outline"
+          size={20}
+          color={colors.primaryColor}
+        />
         <Text style={styles.locationText}>Nairobi, KE</Text>
         <Ionicons name="chevron-down-outline" size={16} color="#656B68" />
       </TouchableOpacity>
@@ -33,7 +37,6 @@ const AppTopNav = ({ openBottomSheet }: AppTopNavProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    // paddingHorizontal: 16,
     paddingVertical: 25,
     flexDirection: "row",
     alignItems: "center",
@@ -53,7 +56,7 @@ const styles = StyleSheet.create({
   locationText: {
     marginLeft: 4,
     fontSize: 16,
-    color: "#2FAA7A",
+    color: colors.primaryColor,
     fontWeight: "600",
   },
   iconsContainer: {

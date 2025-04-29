@@ -41,7 +41,7 @@ const AppTextInput: React.FC<AppTextInputProps> = ({
       style={[
         styles.container,
         style,
-        focus ? { borderColor: colors.green } : { borderColor: "#ccc" },
+        focus ? { borderColor: colors.primaryColor } : { borderColor: "#ccc" },
       ]}
     >
       {icon ? icon : null}
