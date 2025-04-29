@@ -39,9 +39,9 @@ const ShareLocation = ({ navigation }: { navigation: ShareLocationProps }) => {
           navigation.navigate("Zipcode");
         }}
         style={{
-          backgroundColor: colors.lightGreen,
+          backgroundColor: colors.secondaryColor,
           borderWidth: 1,
-          borderColor: colors.lightGrey,
+          borderColor: colors.primaryColor,
         }}
       >
         <Text style={[styles.btnText, { color: colors.dark }]}>Not Now</Text>

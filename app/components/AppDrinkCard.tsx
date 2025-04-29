@@ -53,7 +53,7 @@ const DrinkCard: React.FC<DrinkCardProps> = ({
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: colors.lightGreen,
+    backgroundColor: colors.white,
     borderRadius: 12,
     overflow: "hidden",
     marginBottom: 20,
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   addButton: {
-    backgroundColor: colors.green,
+    backgroundColor: colors.primaryColor,
     borderRadius: 8,
     padding: 6,
   },

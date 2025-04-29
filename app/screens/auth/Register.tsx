@@ -80,15 +80,15 @@ const Register = ({ navigation }: { navigation: RegisterProps }) => {
         <AppButton
           onPress={() => {}}
           style={{
-            backgroundColor: colors.lightGreen,
-            borderColor: colors.lightGrey,
+            backgroundColor: colors.secondaryColor,
+            borderColor: colors.primaryColor,
             borderWidth: 1,
           }}
         >
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <Image
               resizeMode="contain"
-              source={require("../../assets/images/google.png")}
+              source={require("../../../assets/images/google.png")}
               style={styles.logoImg}
             />
             <Text style={[styles.btnText, { color: colors.dark }]}>
@@ -100,15 +100,15 @@ const Register = ({ navigation }: { navigation: RegisterProps }) => {
         <AppButton
           onPress={() => {}}
           style={{
-            backgroundColor: colors.lightGreen,
-            borderColor: colors.lightGrey,
+            backgroundColor: colors.secondaryColor,
+            borderColor: colors.primaryColor,
             borderWidth: 1,
           }}
         >
           <View style={{ flexDirection: "row", alignItems: "center" }}>
             <Image
               resizeMode="contain"
-              source={require("../../assets/images/apple.png")}
+              source={require("../../../assets/images/apple.png")}
               style={styles.logoImg}
             />
             <Text style={[styles.btnText, { color: colors.dark }]}>
@@ -128,7 +128,7 @@ const Register = ({ navigation }: { navigation: RegisterProps }) => {
             Already Have An Account?{" "}
           </Text>
           <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-            <Text style={{ color: colors.green }}>Sign In</Text>
+            <Text style={{ color: colors.primaryColor }}>Sign In</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: "#F5FCFF",
+    backgroundColor: colors.AppBg,
     paddingTop: 50,
     paddingHorizontal: 20,
   },

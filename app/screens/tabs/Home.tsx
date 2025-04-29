@@ -36,7 +36,9 @@ const Home = () => {
         contentContainerStyle={{ paddingBottom: 120 }}
       >
         <Text style={styles.heading}>
-          <Text style={{ color: colors.green }}>Budget-friendly{"\n"}</Text>
+          <Text style={{ color: colors.primaryColor }}>
+            Budget-friendly{"\n"}
+          </Text>
           drinks for you
         </Text>
         <AppTextInput
@@ -184,10 +186,10 @@ const Home = () => {
 
 const styles = StyleSheet.create({
   activeFilter: {
-    backgroundColor: colors.green,
+    backgroundColor: colors.primaryColor,
   },
   activeFilterText: {
-    color: "#fff",
+    color: colors.white,
     fontWeight: "600",
   },
   container: {
@@ -202,8 +204,10 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 16,
     borderRadius: 20,
-    backgroundColor: "#eee",
+    backgroundColor: colors.white,
     marginRight: 10,
+    borderWidth: 1,
+    borderColor: colors.lightGrey,
   },
 
   filterText: {
