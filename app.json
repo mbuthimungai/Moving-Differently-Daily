@@ -14,7 +14,10 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.mbuthimungai.moving-differently-daily"
+      "bundleIdentifier": "com.mbuthimungai.moving-differently-daily",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -27,6 +30,11 @@
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "0657db97-afb9-4e5a-a164-d9da5b96e33b"
+      }
+    }
   }
 }

@@ -8,6 +8,6 @@ export default {
   white: "#FFFFFF",
   secondaryColor: "#F7C6C7",
   lightGrey: "#ccc",
-  AppBg: "##fff3f3",
+  AppBg: "#FAF7F5",
   darkLightGreen: "#FEF5F5",
 };
