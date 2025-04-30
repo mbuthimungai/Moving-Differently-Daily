@@ -7,6 +7,7 @@ import Search from "../screens/tabs/Search";
 import Profile from "../screens/tabs/Profile";
 import Orders from "../screens/tabs/Orders";
 import colors from "../../assets/colors";
+import SearchNavigation from "./SearchNavigation";
 
 const Tab = createBottomTabNavigator();
 
@@ -35,7 +36,7 @@ const MainTabNavigator = () => {
       />
       <Tab.Screen
         name="Search"
-        component={Search}
+        component={SearchNavigation}
         options={{
           tabBarIcon: ({ focused }) => (
             <Feather
