@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Product from "../screens/tabs/product";
+import Product from "../screens/tabs/Product";
 import Search from "../screens/tabs/Search";
 
 const Stack = createNativeStackNavigator();
