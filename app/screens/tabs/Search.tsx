@@ -1,6 +1,6 @@
-import { Dimensions, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import BottomSheet from "@gorhom/bottom-sheet";
-import { FlatList, ScrollView } from "react-native-gesture-handler";
+import { FlatList } from "react-native-gesture-handler";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { useRef, useState } from "react";
 import colors from "../../../assets/colors";
@@ -9,9 +9,11 @@ import LocationSelector from "../../components/LocationSelector";
 import AppTextInput from "../../components/AppTextInput";
 import DrinkCard from "../../components/AppDrinkCard";
 import { drinksData } from "../../utils/data";
+import AppFilterSearch from "../../components/AppFilterSearch";
 
 const Search = () => {
   const bottomSheetRef = useRef<BottomSheet>(null);
+  const filterBottomSheetRef = useRef<BottomSheet>(null);
 
   const openBottomSheet = () => {
     bottomSheetRef.current?.expand();
@@ -38,14 +40,17 @@ const Search = () => {
             style={styles.input}
           />
         </View>
-        <View style={styles.filterIconWrapper}>
+        <TouchableOpacity
+          style={styles.filterIconWrapper}
+          onPress={() => filterBottomSheetRef.current?.expand()}
+        >
           <MaterialCommunityIcons
             name="tune-variant"
             size={24}
             color={colors.white}
             style={styles.filterIcon}
           />
-        </View>
+        </TouchableOpacity>
       </View>
       <Text style={styles.results}>40 results</Text>
 
@@ -54,6 +59,7 @@ const Search = () => {
         keyExtractor={(item) => item.id.toString()}
         showsVerticalScrollIndicator={false}
         numColumns={2}
+        contentContainerStyle={{ paddingBottom: 80 }}
         renderItem={({ item }) => (
           <View style={styles.cardWrapper}>
             <DrinkCard
@@ -70,6 +76,7 @@ const Search = () => {
         )}
       />
       <LocationSelector bottomSheetRef={bottomSheetRef} />
+      <AppFilterSearch bottomSheetRef={filterBottomSheetRef} />
     </View>
   );
 };

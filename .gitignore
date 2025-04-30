@@ -10,6 +10,8 @@ web-build/
 expo-env.d.ts
 yarn.lock
 ios/
+*.tar.gz
+*.app
 # Native
 *.orig.*
 *.jks
