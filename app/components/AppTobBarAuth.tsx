@@ -16,7 +16,9 @@ const AppTobBarAuth: React.FC<AppTobBarAuthProps> = ({
       <TouchableOpacity style={styles.iconView} onPress={handleNavBack}>
         <MaterialIcons name="chevron-left" size={20} color={colors.dark} />
       </TouchableOpacity>
-      <Text style={styles.headingText}>{text}</Text>
+      <View style={styles.centerContainer}>
+        <Text style={styles.headingText}>{text}</Text>
+      </View>
     </View>
   );
 };
@@ -25,6 +27,10 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
+    height: 60,
+    position: "relative",
+    // borderColor: colors.grey,
+    // borderBottomWidth: 1,
   },
   iconView: {
     width: 40,
@@ -35,11 +41,17 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.lightGrey,
   },
+  centerContainer: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    alignItems: "center",
+    justifyContent: "center",
+  },
   headingText: {
     fontSize: 20,
     fontFamily: "Manrope-SemiBold",
-    flex: 1,
-    textAlign: "center",
   },
 });
+
 export default AppTobBarAuth;

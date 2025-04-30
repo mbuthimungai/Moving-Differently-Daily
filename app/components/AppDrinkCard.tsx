@@ -20,6 +20,7 @@ interface DrinkCardProps {
   onFavorite?: () => void;
   isFavorite?: boolean;
   style?: StyleProp<ViewStyle>;
+  handleNav?: () => void;
 }
 
 const DrinkCard: React.FC<DrinkCardProps> = ({
@@ -31,10 +32,13 @@ const DrinkCard: React.FC<DrinkCardProps> = ({
   onFavorite,
   isFavorite = false,
   style,
+  handleNav,
 }) => {
   return (
     <View style={[styles.card, style]}>
-      <Image source={{ uri: image }} style={styles.image} />
+      <TouchableOpacity onPress={handleNav}>
+        <Image source={{ uri: image }} style={styles.image} />
+      </TouchableOpacity>
 
       <TouchableOpacity style={styles.favoriteIcon} onPress={onFavorite}>
         <Ionicons

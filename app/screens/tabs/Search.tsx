@@ -10,8 +10,16 @@ import AppTextInput from "../../components/AppTextInput";
 import DrinkCard from "../../components/AppDrinkCard";
 import { drinksData } from "../../utils/data";
 import AppFilterSearch from "../../components/AppFilterSearch";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { SearchNavigationParamList } from "../../navigation/SearchNavigation";
 
-const Search = () => {
+interface SearchProps {
+  navigation: NativeStackNavigationProp<
+    SearchNavigationParamList,
+    "DefaultSearch"
+  >;
+}
+const Search: React.FC<SearchProps> = ({ navigation }) => {
   const bottomSheetRef = useRef<BottomSheet>(null);
   const filterBottomSheetRef = useRef<BottomSheet>(null);
 
@@ -71,6 +79,7 @@ const Search = () => {
               onFavorite={() => console.log("Favorited!", item.name)}
               isFavorite={item.isFavorite}
               style={styles.drinkCard}
+              handleNav={() => navigation.navigate("Product")}
             />
           </View>
         )}
